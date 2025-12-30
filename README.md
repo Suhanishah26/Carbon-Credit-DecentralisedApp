@@ -24,6 +24,8 @@ To test the full lifecycle, create **4 distinct accounts** in MetaMask:
 3. **Account 3: Organization** (The Buyer)
 4. **Account 4: Green Project Owner** (The Seller)
 
+---
+
 ### 2. Collect Fake Ether (Faucets)
 
 You need Sepolia ETH to pay for transaction gas.
@@ -31,6 +33,8 @@ You need Sepolia ETH to pay for transaction gas.
 - **Google Search:** [Click here to search for "Sepolia Faucet"](https://www.google.com/search?q=sepolia+faucet)
 - **Recommendation:** Use legit faucets like Google Cloud, Alchemy, or Infura
 - **Note:** You will need a small amount of ETH on Mainnet for some faucets to work, or use a "PoW Faucet" that uses your CPU to "mine" test tokens
+
+---
 
 ### 3. Auditor Authorization
 
@@ -73,6 +77,8 @@ npx hardhat compile
 npx hardhat run scripts/deploy.js --network sepolia
 ```
 
+---
+
 ### Step 2: Configure ABI
 
 The frontend needs the contract's "map" to work:
@@ -86,6 +92,8 @@ export const abi = [
   /* Paste ABI array here */
 ];
 ```
+
+---
 
 ### Step 3: Start Web App
 
