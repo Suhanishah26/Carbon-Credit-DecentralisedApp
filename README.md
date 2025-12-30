@@ -1,4 +1,3 @@
-````markdown
 # 🇮🇳 Indian Carbon Credit Trading Scheme (CCTS) 🌳
 
 A decentralized blockchain application built on **Ethereum (Sepolia Testnet)** to facilitate the Indian Carbon Credit Trading Scheme. This platform allows **Green Projects** to earn ICC tokens and **Organizations** to buy and retire them to meet mandatory compliance targets.
@@ -7,12 +6,13 @@ A decentralized blockchain application built on **Ethereum (Sepolia Testnet)** t
 
 ## 🛠 Prerequisites
 
+`````markdown
 - **Node.js**: v16.x or later
 - **MetaMask**: Browser extension installed
 - **Alchemy**: Account for Sepolia RPC access
 
+`````markdown
 ---
-
 ## ⚙️ Initial Configuration
 
 ### 1. MetaMask Setup (4 Accounts)
@@ -23,17 +23,18 @@ To test the full lifecycle, create **4 distinct accounts** in MetaMask:
 2. **Account 2: Accredited Auditor** (Hardcode this in `deploy.js`)
 3. **Account 3: Organization** (The Buyer)
 4. **Account 4: Green Project Owner** (The Seller)
-
 ---
 
 ### 2. Collect Fake Ether (Faucets)
 
 You need Sepolia ETH to pay for transaction gas.
 
+`````markdown
 - **Google Search:** [Click here to search for "Sepolia Faucet"](https://www.google.com/search?q=sepolia+faucet)
 - **Recommendation:** Use legit faucets like Google Cloud, Alchemy, or Infura
 - **Note:** You will need a small amount of ETH on Mainnet for some faucets to work, or use a "PoW Faucet" that uses your CPU to "mine" test tokens
 
+````markdown
 ---
 
 ### 3. Auditor Authorization
@@ -56,7 +57,6 @@ Create these `.env` files to connect your backend and frontend.
 ALCHEMY_URL=https://eth-sepolia.g.alchemy.com/v2/YOUR_KEY
 PRIVATE_KEY=YOUR_ACCOUNT_1_PRIVATE_KEY
 ```
-````
 
 ### Frontend Directory `.env`
 
@@ -139,3 +139,7 @@ For questions or support, please reach out through the repository issues section
 ```
 
 ```
+````
+`````
+`````
+`````
