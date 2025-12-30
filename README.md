@@ -24,13 +24,21 @@ To test the full lifecycle, create **4 distinct accounts** in MetaMask:
 3. **Account 3: Organization** (The Buyer)
 4. **Account 4: Green Project Owner** (The Seller)
 
-### 2. Auditor Authorization
+### 2. Collect Fake Ether (Faucets)
+
+You need Sepolia ETH to pay for transaction gas.
+
+- **Google Search:** [Click here to search for "Sepolia Faucet"](https://www.google.com/search?q=sepolia+faucet)
+- **Recommendation:** Use legit faucets like Google Cloud, Alchemy, or Infura
+- **Note:** You will need a small amount of ETH on Mainnet for some faucets to work, or use a "PoW Faucet" that uses your CPU to "mine" test tokens
+
+### 3. Auditor Authorization
 
 Before deploying, you **must** authorize your Auditor:
 
-1. Open `scripts/deploy.js`.
-2. Find `const AUDITOR_ADDRESS =`.
-3. Replace the address with your **Account 2** address.
+1. Open `scripts/deploy.js`
+2. Find the line: `const AUDITOR_ADDRESS = "0x...";`
+3. Replace the address with your **Account 2** address
 
 ---
 
@@ -38,20 +46,19 @@ Before deploying, you **must** authorize your Auditor:
 
 Create these `.env` files to connect your backend and frontend.
 
-**Root Directory `.env`**
+### Root Directory `.env`
 
 ```env
-ALCHEMY_URL=[https://eth-sepolia.g.alchemy.com/v2/YOUR_KEY](https://eth-sepolia.g.alchemy.com/v2/YOUR_KEY)
+ALCHEMY_URL=https://eth-sepolia.g.alchemy.com/v2/YOUR_KEY
 PRIVATE_KEY=YOUR_ACCOUNT_1_PRIVATE_KEY
 ```
 ````
 
-**Frontend Directory `.env**`
+### Frontend Directory `.env`
 
 ```env
 REACT_APP_CONTRACT_ADDRESS=PASTE_ADDRESS_HERE
 REACT_APP_SEPOLIA_CHAIN_ID=11155111
-
 ```
 
 ---
@@ -64,20 +71,19 @@ REACT_APP_SEPOLIA_CHAIN_ID=11155111
 npm install
 npx hardhat compile
 npx hardhat run scripts/deploy.js --network sepolia
-
 ```
 
 ### Step 2: Configure ABI
 
 The frontend needs the contract's "map" to work:
 
-1. Go to `artifacts/contracts/IndianCarbonCredit.sol/IndianCarbonCredit.json`.
-2. Copy the **abi** array.
+1. Go to `artifacts/contracts/IndianCarbonCredit.sol/IndianCarbonCredit.json`
+2. Copy the `abi` array
 3. Open `frontend/src/contract.js` and paste it:
 
 ```javascript
 export const abi = [
-  /* Paste ABI here */
+  /* Paste ABI array here */
 ];
 ```
 
@@ -87,19 +93,41 @@ export const abi = [
 cd frontend
 npm install
 npm start
-
 ```
 
 ---
 
 ## 🧪 Testing Flow
 
-1. **Auditor (Acc 2):** Submits industry/forestry data.
-2. **Organization (Acc 3):** Views shortfall and posts "Buy Request".
-3. **Green Project (Acc 4):** Fulfills the order.
-4. **Settlement:** Organization retires credits to become compliant.
+To test the system from end-to-end:
+
+1. **Auditor (Account 2)**: Submits industry data (creates debt for Account 3) and forestry data (issues credits to Account 4)
+2. **Organization (Account 3)**: Log in, view your "Non-Compliant" status, and post a "Buy Request" on the marketplace
+3. **Green Project (Account 4)**: View the marketplace, find the request, and click "Fulfill" to transfer your credits
+4. **Settlement (Account 3)**: Go to your dashboard and "Retire" the credits to become "Compliant"
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+---
+
+## 📧 Contact
+
+For questions or support, please reach out through the repository issues section.
+
+---
+
+**Built with ❤️ for a greener India 🌱**
 
 ```
-
 
 ```
